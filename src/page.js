@@ -426,11 +426,6 @@ function Page() {
               <input name="salary" {...register("salary", { required: true })}  placeholder='Expected Salary'/>
               <span>THB</span>
             </div>
-            <input
-                style={{ display: "block", marginTop: 20 }}
-                type="reset"
-                value="Standard Reset Field Values"
-            />
             <Button type="submit" value="submit">submit</Button>
           </div>
                 
