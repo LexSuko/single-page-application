@@ -4,7 +4,7 @@ import Home from './page';
 
 function App() {
   return (
-    <Router >
+    <Router basename={'/single-page-application'}>
       <Routes>
         <Route path="/" element={<Home/>} exact/>
       </Routes>
