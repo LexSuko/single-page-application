@@ -5,8 +5,7 @@ import Home from './page';
 function App() {
   return (
     <Router >
-      {/* basename={'/single-page-application'} */}
-      <Routes>
+      <Routes basename={'/single-page-application'}>
         <Route path="/" element={<Home/>} exact/>
       </Routes>
     </Router>
