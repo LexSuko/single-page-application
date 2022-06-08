@@ -46,6 +46,12 @@ function Page() {
       }
     ]);
     reset();
+    setTel("");
+    setCitizen("");
+    setCitizen2("");
+    setCitizen3("");
+    setCitizen4("");
+    setCitizen5("");
   }
 
   const sorting = (e) => {
