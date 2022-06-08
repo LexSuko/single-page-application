@@ -8,7 +8,7 @@ import ReactPaginate from 'react-paginate';
 import './index.css';
 
 function Page() {
-  const { register, handleSubmit, control, formState: { errors } } = useForm();
+  const { register, handleSubmit, control, reset , formState: { errors } } = useForm();
   const [order, setOrder] = useState("ASC");
 
   const [pageNumber, setPageNumber] = useState(0);
@@ -28,7 +28,7 @@ function Page() {
 
   // สำคัญ
   function onSubmit(e) {
-    // alert(JSON.stringify(e));
+    alert(JSON.stringify(e));
 
     setTodos([
       ...todos,
@@ -45,7 +45,7 @@ function Page() {
         salary: e.salary,
       }
     ]);
-    setFirstname("");
+    reset();
   }
 
   const sorting = (e) => {
@@ -267,7 +267,7 @@ function Page() {
             </div>
             
             <span>First Name </span> {errors.firstname && <span className='error'>*</span>}
-            <input name="firstname"  {...register("firstname", { required: true })}  placeholder='First name'/>
+            <input onChange={handleInputFristnameChange} name="firstname"  {...register("firstname", firstname , { required: true })}  placeholder='First name'/>
             
             <span>Last Name </span> {errors.lastname && <span className='error'>*</span>}
             <input name="lastname" {...register("lastname", { required: true })} placeholder='Last name'/>
@@ -275,7 +275,7 @@ function Page() {
 
           <div className='birthday'>
             <div style={{alignItems: 'center'}}>
-              BrithDay  <span className='error' s>*</span>
+              BrithDay  <span className='error'>*</span>
             </div>
             
             <div style={{marginTop: -10}}>
@@ -426,7 +426,11 @@ function Page() {
               <input name="salary" {...register("salary", { required: true })}  placeholder='Expected Salary'/>
               <span>THB</span>
             </div>
-            
+            <input
+                style={{ display: "block", marginTop: 20 }}
+                type="reset"
+                value="Standard Reset Field Values"
+            />
             <Button type="submit" value="submit">submit</Button>
           </div>
                 
