@@ -184,11 +184,11 @@ function Page() {
     setGender(event.target.value);
     console.log("Gender = "+event.target.value);
   }
-
+  
   const displayUser = todos.slice(pagesVisited , pagesVisited + userPerPage).map(todo => {
     return (
                 <tr key={todo.id}>
-                  <td><input className='radioS' type="radio"></input></td>
+                  <td><input className="radioS" type="checkbox"/></td>
                   <td>{todo.name}</td>
                   <td>{todo.gender}</td>
                   <td>{todo.mobile}</td>
@@ -439,7 +439,7 @@ function Page() {
         <section className="Loadtable">
           <div className="heading">
             <div className="box-contenter">
-              <input className="radioS" type="radio" name='radionSelectDelete'></input>
+              <input className="radioS" type="checkbox" name='radionSelectDelete'/>
               <span>Select All</span>
               <Button variant="danger" style={{marginLeft: 10}}>DELETE</Button>
             </div>
