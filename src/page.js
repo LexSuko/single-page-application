@@ -193,7 +193,6 @@ function Page() {
                   <td>{todo.gender}</td>
                   <td>{todo.mobile}</td>
                   <td>{todo.nationality}</td>
-                  {/* <td><Button variant="secondary" onClick={() => handleEditClick(todo)}>Edit</Button></td> */}
                   <td><Button variant="secondary">Edit</Button></td>
                   <td><Button variant="danger" onClick={() => handleDeleteClick(todo.id)}>Delete</Button></td>
                 </tr>
@@ -204,65 +203,17 @@ function Page() {
   const changePage = ({selected}) => {
     setPageNumber(selected);
   }
-
-  // let active = 2;
-  // let items = [];
-  // for (let number = 1; number <= 5; number++) {
-  //   items.push(
-  //     <Pagination.Item key={number} active={number === active}>
-  //       {number}
-  //     </Pagination.Item>,
-  //   );
-  // }
   
   console.log(todos);
 
   return (
     <div className="App">
-      {/* {isEditing ? (
-          <form onSubmit={handleEditFromSubmit}>
-            <h2>Edit Todo</h2>
-            <label htmlFor="editTodo">Edit todo: </label>
-            <input
-              type="text"
-              name="editTodo"
-              placeholder='Edit todo'
-              value={currentTodo.text}
-              onChange={handleEditInputChange}
-            />
-            <button type="submit">Update</button>
-            <button onClick={() => setEditing(false)}>Cancel</button>
-          </form>
-        ) : (
-          <form onSubmit={handleFromSubmit}>
-            <input
-              type="text"
-              name="todo"
-              placeholder='Create a new todo'
-              value={todo}
-              onChange={handleInputChange}
-            />
-            <Button type="submit" value="submit">submit</Button>
-          </form>
-        )} */}
-      {/* <ul className='todo-list'>
-          {todos.map((todo) => (
-            <li key={todo.id}>
-              {todo.text}
-              {" "}
-              <button onClick={() => handleEditClick(todo)}>Edite</button>
-              <button onClick={() => handleDeleteClick(todo.id)}>X</button>
-            </li>
-          ))}
-      </ul> */}
-
       <form onSubmit={handleSubmit(onSubmit)}>
         <section className="detial">
           <div>
             <div className='gen'>
               <span>Title</span><span className='error'>*</span>
-              {/* <input {...register("firstName")}/>
-              <input {...register("lastName")}/> */}
+
               <select {...register("title")} size="sm" style={{width: 100, marginRight: 20}} value={title} onChange={handleChange}>
                 {optionsTitle.map(option => (
                   <option key={option.value} value={option.value}>
@@ -285,12 +236,6 @@ function Page() {
             </div>
             
             <div style={{marginTop: -10}}>
-              {/* <DatePicker 
-                {...register("datepic")}
-                className='datepic'
-                selected={selectedDate}
-                onChange={(date) => setSelectedDate(date)}
-              /> */}
                <Controller
                   control={control}
                   name='brithday'
@@ -329,8 +274,8 @@ function Page() {
                 {...register("Citizen.0")}
                 value={Citizen}
                 onChange={(event) => {
-                        if(event.target.value.length===2) return false;   //limits to 10 digit entry
-                        setCitizen(event?.target.value);       //saving input to state
+                        if(event.target.value.length===2) return false;
+                        setCitizen(event?.target.value);  
                     }
                 }
                 id="Citizen"
@@ -342,8 +287,8 @@ function Page() {
                 {...register("Citizen.1")}
                 value={Citizen2}
                 onChange={(event) => {
-                        if(event.target.value.length===5) return false;   //limits to 10 digit entry
-                        setCitizen2(event?.target.value);       //saving input to state
+                        if(event.target.value.length===5) return false; 
+                        setCitizen2(event?.target.value);  
                     }
                 }
                 id="Citizen"
@@ -355,8 +300,8 @@ function Page() {
                 {...register("Citizen.2")}
                 value={Citizen3}
                 onChange={(event) => {
-                        if(event.target.value.length===6) return false;   //limits to 10 digit entry
-                        setCitizen3(event?.target.value);       //saving input to state
+                        if(event.target.value.length===6) return false; 
+                        setCitizen3(event?.target.value); 
                     }
                 }
                 id="Citizen"
@@ -368,8 +313,8 @@ function Page() {
                 {...register("Citizen.3")}
                 value={Citizen4}
                 onChange={(event) => {
-                        if(event.target.value.length===3) return false;   //limits to 10 digit entry
-                        setCitizen4(event?.target.value);       //saving input to state
+                        if(event.target.value.length===3) return false;
+                        setCitizen4(event?.target.value);  
                     }
                 }
                 id="Citizen"
@@ -381,8 +326,8 @@ function Page() {
                 {...register("Citizen.4")}
                 value={Citizen5}
                 onChange={(event) => {
-                        if(event.target.value.length===2) return false;   //limits to 10 digit entry
-                        setCitizen5(event?.target.value);       //saving input to state
+                        if(event.target.value.length===2) return false; 
+                        setCitizen5(event?.target.value); 
                 }}
                 id="Citizen"
               />
@@ -409,8 +354,8 @@ function Page() {
                 {...register("tel.1" , {required: true})}
                 value={tel}
                 onChange={(event) => {
-                        if(event.target.value.length===9) return false;   //limits to 10 digit entry
-                        setTel(event?.target.value);       //saving input to state
+                        if(event.target.value.length===9) return false; 
+                        setTel(event?.target.value); 
                     }
                 }
                 placeholder='Number Phone'
@@ -426,8 +371,6 @@ function Page() {
           <div className="Sub">
             <div className="Pass">
               <span>Expected Salary : </span> {errors.salary && <span className='error'>*</span>}
-              {/* <input {...register("passport")} name="todo" placeholder='Passport No'></input> */}
-
 
               <input name="salary" {...register("salary", { required: true })}  placeholder='Expected Salary'/>
               <span>THB</span>
@@ -444,9 +387,6 @@ function Page() {
               <Button variant="danger" style={{marginLeft: 10}}>DELETE</Button>
             </div>
             <div className="box-contenter2">
-              {/* <Button>Prev</Button>
-              <Pagination size="sm" style={{marginTop: 13}}>{items}</Pagination>
-              <Button>Next</Button> */}
               <ReactPaginate
                 previousLabel={"previous"}
                 nextlabel={"Next"}
@@ -471,17 +411,6 @@ function Page() {
               </tr>
             </thead>
             <tbody>
-              {/* {todos.map((todo) => (
-                <tr key={todo.id}>
-                  <td>{todo.id}</td>
-                  <td>{todo.name}</td>
-                  <td>{todo.gender}</td>
-                  <td>{todo.mobile}</td>
-                  <td>{todo.nationality}</td>
-                  <td><Button variant="secondary" onClick={() => handleEditClick(todo)}>Edit</Button></td>
-                  <td><Button variant="danger" onClick={() => handleDeleteClick(todo.id)}>Delete</Button></td>
-                </tr>
-              ))} */}
               {displayUser}
             </tbody>
           </Table>
