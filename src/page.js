@@ -273,7 +273,7 @@ function Page() {
             </div>
             
             <span>First Name </span> {errors.firstname && <span className='error'>*</span>}
-            <input onChange={handleInputFristnameChange} name="firstname"  {...register("firstname", firstname , { required: true })}  placeholder='First name'/>
+            <input name="firstname"  {...register("firstname", firstname , { required: true })}  placeholder='First name'/>
             
             <span>Last Name </span> {errors.lastname && <span className='error'>*</span>}
             <input name="lastname" {...register("lastname", { required: true })} placeholder='Last name'/>
